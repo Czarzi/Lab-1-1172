@@ -1,0 +1,236 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab1
+{
+    public class Solution
+    {
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Задание 1. Вывести на экран чётные числа от 1 до 100 включительно");
+
+            for(int i=2; i <= 100; i += 2)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 2. Вывести на экран прямоугольник размером m на n из восьмёрок.");
+
+            Console.Write("Enter int m: ");
+            int m = int.Parse(Console.ReadLine());
+            Console.Write("Enter int n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int z = 0; z < m; z++)
+            {
+                for (int v = 0; v < n; v++)
+                {
+                    Console.Write("8");
+
+                }
+                Console.WriteLine(" ");
+            }
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 3. Вывести на экран прямоугольный треугольник из восьмёрок со сторонами 10 и 10.");
+
+            String s = "8";
+
+            for (int count = 0; count < 10; count++)
+            {
+                Console.WriteLine(s);
+                s = s + 8;
+            }
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 4. Ввести с клавиатуры два числа, и вывести на экран минимальное из них");
+
+            Console.Write("Enter int x: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Enter int y: ");
+            int y = int.Parse(Console.ReadLine());
+
+            Console.Write("Минимум из 2 чисел = ");
+            FindingTheMinimumOfTwoNumbers(x, y);
+
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 5. Ввести с клавиатуры два имени, и если имена одинаковые, вывести сообщение «Имена идентичны». Если имена разные, но их длины равны – вывести сообщение – «Длины имен равны». Пробелы учитываются");
+
+            Console.Write("Enter 1st name: ");
+            string name1 = Console.ReadLine();
+            Console.Write("Enter 2nd name: ");
+            string name2 = Console.ReadLine();
+
+            if (name1 == name2)
+            {
+                Console.WriteLine("Имена идентичны и Имеют одинаковую длину ");
+            }
+            else if (name1.Length == name2.Length)
+            {
+                Console.WriteLine("Имена имеют одинаковую длину");
+            }
+            else if (name1 != name2)
+            {
+                Console.WriteLine("Имена различны и имеют различные длины");
+            }
+  
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 6. Написать функцию, которая вычисляет минимум из четырёх чисел. Функция min(a,b,c,d) должна использовать (вызывать) функцию min(a,b).");
+
+            Console.Write("Enter int a: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Enter int b: ");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("Enter int c: ");
+            int c = int.Parse(Console.ReadLine());
+            Console.Write("Enter int d: ");
+            int d = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Минимум из двух чисел = " + min(a, b, c, d));
+
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 7. Ввести с клавиатуры два целых числа, которые будут координатами точки, не лежащей на координатных осях OX и OY. Вывести на экран номер координатной четверти, в которой находится данная точка.");
+
+            Console.Write("Enter int coordinateX: ");
+            int coordinateX = int.Parse(Console.ReadLine());
+            Console.Write("Enter int coordinateY: ");
+            int coordinateY = int.Parse(Console.ReadLine());
+
+            if(coordinateX>0 && coordinateY > 0)
+            {
+                Console.WriteLine("Точка находится в Первой четверти");
+            }else
+            {
+                if (coordinateX < 0 && coordinateY > 0) {
+                    Console.WriteLine("Точка находится во Второй четверти");
+                }else
+                {
+                    if (coordinateX < 0 && coordinateY < 0)
+                    {
+                        Console.WriteLine("Точка находится в Третьей четверти");
+                    }else
+                    {
+                        if (coordinateX > 0 && coordinateY < 0)
+                        {
+                            Console.WriteLine("Точка находится в Четвертой четверти");
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 8. Создайте массив из всех чётных чисел от 2 до 20 и выведите элементы массива на экран сначала в строку, отделяя один элемент от другого пробелом, а затем в столбик (отделяя один элемент от другого началом новой строки)");
+
+            int[] mass = new int[10];
+            int h = 0;
+            int j = 1;
+            while (h < 10)
+            {
+                mass[h] = ++j;
+                j++;
+                h++;
+            }
+            //вывод в строку
+            for (h = 0; h < 10; h++)
+                Console.Write(mass[h] + " ");
+            //Вывод в столбик
+            Console.WriteLine(" ");
+            for (h = 0; h < 10; h++)
+                Console.WriteLine(mass[h]);
+
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 9. Создайте массив из всех нечётных чисел от 1 до 99, выведите его на экран в строку, а затем этот же массив выведите на экран тоже в строку, но в обратном порядке (99 97 95 93 … 7 5 3 1).");
+
+            // создание массива
+            int[] t = new int[50];
+            for (int o = 1, u = 0; o <= 99; o += 2, u++)
+            {
+                t[u] = o;
+            }
+
+            // вывод массива
+            for (int i = 0; i < 50; i++)
+            {
+               Console.Write(t[i] + " ");
+            }
+
+            Console.WriteLine(" "); // на новую строку
+
+            // вывод в обратном порядке
+            for (int i = 49; i >= 0; i--)
+            {
+                Console.Write(t[i] + " ");
+            }
+
+            Console.WriteLine(" ");
+
+            /*-----------------------------------------------------------*/
+
+            Console.WriteLine("Задание 10. Создайте массив из 15 случайных целых чисел из отрезка [0;9]. Выведите массив на экран. Подсчитайте сколько в массиве чётных элементов и выведете это количество на экран на отдельной строке.");
+
+            //Создайте массив из 15 случайных целых
+            Random g = new Random(15);
+            
+
+
+
+            Console.ReadKey();
+        }
+
+        public static void FindingTheMinimumOfTwoNumbers(int x, int y)
+        {
+            if (x<y)
+            {
+                Console.Write(x);
+            }else
+            {
+                Console.Write(y);
+            }
+        }
+
+        public static int min(int a, int b, int c, int d)
+        {
+            return min(min(a, b), min(c, d));
+        }
+
+        public static int min(int a, int b)
+        {
+            return Math.Min(a, b);
+        }
+
+        public static bool Check(int a)
+        {
+            if (a % 2 == 0 && a != 0) //!!!! a!=0
+                return true;
+            else
+                return false;
+        }
+    }
+
+}
